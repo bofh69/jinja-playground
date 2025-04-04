@@ -48,7 +48,7 @@ class Application:
         self._json_text.grid(row=1, column=0, padx=5, pady=5, sticky="nsew")
         self._json_text.insert(
             tk.INSERT,
-            '{ "id": 17, "registered": "2024-10-08T12:23:04Z", "name": "Gilford PLA+ Black", "vendor": { "id": 8, "registered": "2024-10-08T12:20:15Z", "name": "Gilford", "extra": {} }, "material": "PLA", "price": 250.0, "density": 1.24, "diameter": 1.75, "weight": 1000.0, "spool_weight": 116.0, "article_number": "102001A", "settings_extruder_temp": 190, "settings_bed_temp": 60, "color_hex": "000000", "extra": { "pressure_advance": "0.045" }, "sm2s": { "name": "spoolman2slicer.py", "version": "0.0.1", "now": "Sun Jan 26 10:57:51 2025", "now_int": 1737885471, "slicer_suffix": "ini" } } ',
+            '{ "id": 17, "registered": "2024-10-08T12:23:04Z", "name": "Gilford PLA+ Black", "vendor": { "id": 8, "registered": "2024-10-08T12:20:15Z", "name": "Gilford", "extra": {} }, "material": "PLA", "price": 250.0, "density": 1.24, "diameter": 1.75, "weight": 1000.0, "spool_weight": 116.0, "article_number": "102001A", "settings_extruder_temp": 190, "settings_bed_temp": 60, "color_hex": "000000", "extra": { "pressure_advance": "0.045" }, "sm2s": { "name": "spoolman2slicer.py", "version": "0.0.1", "now": "Sun Jan 26 10:57:51 2025", "now_int": 1737885471, "slicer_suffix": "ini" } } ',  # noqa: E501
         )
 
         template_label = tk.Label(frame, text="Template")
@@ -56,7 +56,9 @@ class Application:
         self._template_text = scrolledtext.ScrolledText(
             frame, wrap=tk.WORD, width=40, height=10
         )
-        self._template_text.grid(row=1, column=1, padx=5, pady=5, sticky="nsew")
+        self._template_text.grid(
+            row=1, column=1, padx=5, pady=5, sticky="nsew"
+        )
         self._template_text.insert(
             tk.INSERT,
             """\
@@ -67,8 +69,8 @@ bridge_internal_fan_speed = -1
 chamber_temperature = 15
 compatible_printers =
 compatible_printers_condition =
-compatible_prints = 
-compatible_prints_condition = 
+compatible_prints =
+compatible_prints_condition =
 cooling = 1
 disable_fan_first_layers = 1
 end_filament_gcode = ""
@@ -134,7 +136,7 @@ filament_wipe_speed = nil
 first_layer_bed_temperature = {{settings_bed_temp|int + 10}}
 first_layer_temperature = {{settings_extruder_temp|int + 10}}
 full_fan_speed_layer = 4
-inherits = 
+inherits =
 max_fan_speed = 100
 max_speed_reduction = 90%
 min_fan_speed = 100
@@ -143,7 +145,7 @@ slowdown_below_layer_time = 20
 start_filament_gcode = "; Filament gcode\nSET_PRESSURE_ADVANCE ADVANCE={{extra.pressure_advance|default(0)|float}}\nASSERT_ACTIVE_FILAMENT ID={{id}}\n"
 temperature = {{settings_extruder_temp|int}}
 top_fan_speed = 100
-""",
+""",  # noqa: E501
         )
 
         output_label = tk.Label(frame, text="Output")
